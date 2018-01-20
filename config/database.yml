@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  username: boilerplate_app
+
+
+development:
+  <<: *default
+  database: boilerplate_app_dev
+
+test: &test
+  <<: *default
+  database: boilerplate_app_test
+
+production:
+  <<: *default
+  database: boilerplate_app_prod
+
+cucumber:
+  <<: *test

@@ -1,0 +1,28 @@
+ENV["RAILS_ENV"] = "production"
+
+app_name = 'boilerplate_app'
+rails_root = "/export/web/boilerplate_app/current"
+rails_env = "production"
+
+Bluepill.application(app_name) do |app|
+  app.working_dir = rails_root
+
+  app.process("boilerplate_app") do |process|
+    process.start_command = "bundle exec unicorn -Dc config/unicorn.rb "
+    process.pid_file = File.join(rails_root, 'tmp', 'pids', 'unicorn.pid')
+    process.stop_command = "kill -QUIT {{PID}}"
+    process.restart_command = "kill -USR2 {{PID}}"
+    process.start_grace_time = 30.seconds
+    process.stop_grace_time = 10.seconds
+    process.restart_grace_time = 13.seconds
+    process.stdout = process.stderr = "/tmp/production.log"
+
+    process.monitor_children do |child_process|
+      child_process.stop_command = "kill -QUIT {{PID}}"
+
+      child_process.checks :mem_usage, :every => 30.seconds, :below => 200.megabytes, :times => [3,4], :fires => :stop
+      child_process.checks :cpu_usage, :every => 30.seconds, :below => 40, :times => [3,4], :fires => :stop
+    end
+
+  end
+end
