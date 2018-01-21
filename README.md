@@ -3,19 +3,20 @@
 This is a vanilla web application. Tech stack outlined below
 
 - Rails 5
+- Postgres
 - Unicorn
 - Bluepill - would like to try Eye or God
-- chruby
-- sidekiq
-- react
-- redux
-- storybook #TODO
-- jest
-- eslint
-- rubocop
-- cucumber
-- rspec
-- poltergeist
+- Sidekiq
+- Airbrake #TODO
+- React
+- Redux
+- Storybook #TODO
+- Jest #TODO
+- eslint #TODO
+- Rubocop
+- Rspec
+- Cucumber
+- Poltergeist
 - FactoryGirl
 - Faker
 
