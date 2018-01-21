@@ -1,6 +1,6 @@
 class AddressesController < ApplicationController
   def new
-    @inputs = permissible_columns.map {|column| { name: column.name, type: column.sql_type } }
+    @inputs = permissible_columns.map { |column| { name: column.name, type: column.sql_type } }
   end
 
   def index

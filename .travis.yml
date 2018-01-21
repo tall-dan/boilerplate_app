@@ -10,3 +10,4 @@ addons:
 before_script:
   - bundle exec rake db:create_roles
   - RAILS_ENV=test bundle exec rake db:setup db:migrate
+  - bin/yarn install

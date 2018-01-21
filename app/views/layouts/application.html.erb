@@ -8,6 +8,7 @@
     <%= csrf_meta_tags %>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+    <%= javascript_include_tag '/es6-shim.min.js' if Rails.env.test? %>
   </head>
   <body>
     <%= yield %>

@@ -1,8 +1,12 @@
 import React from 'react';
 
-const Address = (address) => {
+const Address = ({address}) => {
   return Object.keys(address).map((prop) => (
-    <input value={address[prop]} disabled/>
+    <input
+      value={address[prop]}
+      key={`${address.id}-${prop}`}
+      disabled
+    />
   ))
 }
 
