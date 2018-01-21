@@ -11,6 +11,7 @@ require 'action_view'
 require 'rack_session_access/capybara'
 require 'cucumber/rails'
 require 'capybara/poltergeist'
+require_relative './share_connections'
 
 Capybara.javascript_driver = :poltergeist
 
@@ -63,6 +64,7 @@ end
 # The :transaction strategy is faster, but might give you threading problems.
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 
-Cucumber::Rails::Database.javascript_strategy = :transaction
+Cucumber::Rails::Database.javascript_strategy = :truncation
 WebMock.disable_net_connect!(allow_localhost: true)
 World(FactoryBot::Syntax::Methods)
+Capybara.default_driver = :poltergeist

@@ -37,6 +37,7 @@ group :test do
   gem 'factory_bot_rails'
   gem 'poltergeist' # not sure that we need both drivers
   gem 'rack_session_access'
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'webmock'

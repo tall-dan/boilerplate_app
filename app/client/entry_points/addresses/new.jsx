@@ -7,7 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <Form submitURL='/addresses'>
     { inputs.map((input) => (
-      <input name={`address[${input.name}]`} type='text' placeholder={input.name}/>
+      <input
+        name={`address[${input.name}]`}
+        key={input.name}
+        type='text'
+        placeholder={input.name}
+      />
     ))}
     </Form>,
     document.body.appendChild(document.createElement('div')),

@@ -5,6 +5,7 @@ require File.expand_path('../../config/environment', __FILE__)
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
+require 'database_cleaner'
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
@@ -12,6 +13,7 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
+  DatabaseCleaner.strategy = :transaction
 
   # Make build(), create() etc. available in test suite
   config.include FactoryBot::Syntax::Methods
@@ -19,6 +21,12 @@ RSpec.configure do |config|
   # No outgoing web connections
   config.before do
     WebMock.disable_net_connect! allow_localhost: true
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
   end
 
   # RSpec Rails can automatically mix in different behaviours to your tests

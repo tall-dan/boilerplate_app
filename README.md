@@ -17,7 +17,7 @@ This is a vanilla web application. Tech stack outlined below
 - rspec
 - poltergeist
 - FactoryGirl
-- Faker #TODO
+- Faker
 
 ## Setup
 

@@ -3,7 +3,11 @@ import Address from '../Address'
 
 const AddressIndex = ({addresses}) => {
   return addresses.map((address) => (
-     <Address { ...address }/>)
+     <Address
+       address={address}
+       key={address.id}
+     />
+    )
   )
 }
 

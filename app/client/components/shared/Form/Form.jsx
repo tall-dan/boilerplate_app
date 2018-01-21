@@ -6,7 +6,7 @@ class Form extends Component {
   render() {
     return(
       <form action={this.props.submitURL} method={this.props.action}>
-      <input type='hidden' name='authenticity_token' value={Authenticity.authenticityToken()} />
+      <input type='hidden' name='authenticity_token' value={Authenticity.authenticityToken() || ''} />
       { this.props.children }
       <input type='submit' />
       </form>
