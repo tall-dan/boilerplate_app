@@ -32,4 +32,5 @@ This is a vanilla web application. Tech stack outlined below
 ### Getting the app running
 1. Clone this repo
 2. `cd boilerplate_app`
+2. `bundle`
 3. `sh bin/setup.sh`
