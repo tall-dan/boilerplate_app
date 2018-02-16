@@ -1,4 +1,4 @@
-# Boilerplate App [![Build Status](https://travis-ci.org/tall-dan/boilerplate_app.svg)](https://travis-ci.org/tall-dan/boilerplate_app)
+# Boilerplate App 
 
 This is a vanilla web application. Tech stack outlined below
 
