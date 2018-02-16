@@ -24,6 +24,7 @@ gem 'mail'
 gem 'sidekiq' # read more at http://railscasts.com/episodes/366-sidekiq
 
 group :development, :test do
+  gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry'
   gem 'pry-byebug'
@@ -34,7 +35,6 @@ end
 group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
-  gem 'factory_bot_rails'
   gem 'poltergeist' # not sure that we need both drivers
   gem 'rack_session_access'
   gem 'rails-controller-testing'
